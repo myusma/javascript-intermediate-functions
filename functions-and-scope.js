@@ -2,7 +2,6 @@
 // maar ook een manier moeten vinden om hetgeen dat je verzamelt ergens te bundelen. Op deze manier zul je ontdekken hoe je omgaat met scope. Pak vooral het hoofdstuk op EdHub over for-loops er nog eens bij!
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
-const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 /* Opdracht  1: Cum Laude */
 
@@ -16,6 +15,18 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6
 
+const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+let counter = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        counter = counter + 1
+    }
+}
+
+console.log(counter)
+
 
 /*  1b: Omschrijven tot een herbruikbare functie   */
 // Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
@@ -28,9 +39,32 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // cumLaude([8, 9, 4, 6, 10]) geeft 3
 
 
+const class2 = [6, 4, 5];
+const class3 = [8, 9, 4, 6, 10];
+
+function gradesAbove(arr) {
+    let counter = 0
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= 8) {
+            counter = counter + 1
+        }
+    }
+    return counter;
+
+}
+
+const output = gradesAbove(grades)
+const output2 = gradesAbove(class2)
+const output3 = gradesAbove(class3)
 
 
-/* Opdracht  2: Gemiddeld cijfer */
+console.log(output)
+console.log(output2)
+console.log(output3)
+
+
+/* Opdracht 2: Gemiddeld cijfer */
 
 /* 2a: Script schrijven  */
 // De studenten-administratie moet ieder blok opnieuw berekenen wat het gemiddelde eindcijfer is, maar we beginnen met de grades array van hierboven.
@@ -42,21 +76,48 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 6.642857142857143
 
+//const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+let count = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    count = count + grades[i];
+
+}
+
+const avarage = count / grades.length;
+console.log(avarage);
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
 
+
 // ---- Verwachte uitkomsten:
 // averageGrade(grades) geeft 6.642857142857143
 // averageGrade([6, 4, 5]) geeft xxxx
 // averageGrade([8, 9, 4, 6, 10]) geeft xxxx
 
+function averageGrades (arr) {
+    let count = 0
+
+    for (let i = 0; i < arr.length; i++) {
+        count = count + arr[i];
+
+    }
+    const average2 = count / arr.length
+    return average2.toFixed(2)
+}
+
+console.log(averageGrades(grades))
+console.log(averageGrades(class2))
+console.log(averageGrades(class3))
 
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+
 
 
 
@@ -72,6 +133,17 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 
 // ---- Verwachte uitkomst: 9
 
+//const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
+
+let highest = 0;
+
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] > highest) {
+        highest = grades[i];
+    }
+}
+
+console.log(highest)
 
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
@@ -82,3 +154,21 @@ const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+
+function highestGrade (array) {
+    let highest = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > highest) {
+            highest = array[i];
+        }
+    }
+        return highest;
+}
+
+console.log(highestGrade(grades))
+console.log(highestGrade(class2))
+console.log(highestGrade(class3))
+
+
+
